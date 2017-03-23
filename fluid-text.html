@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fluid Text | Browser Technologies</title>
+  <style id="css">
+    body {
+      font-size: calc(12px + (26 - 14) * ((100vw - 500px) / (1600 - 300)));
+    }
+
+    #css-test {
+      width: 1px;
+      width: calc(1px + 1px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Fluid Text</h1>
+
+  <div id="css-test"></div>
+
+  <h2>CMD Amsterdam</h2>
+  <p>Wij zijn een HBO ontwerpopleiding op het gebied van digitale interactieve producten en diensten. Onze studenten ontwerpen en realiseren digitale interactieve oplossingen die optimaal aansluiten bij de behoeften van de gebruikers. De gebruiker staat centraal.</p>
+  <p>Het ontwerpproces starten we daarom met het onderzoeken van de gebruikers en hun behoeften en/of problemen. Om vervolgens ideeën te bedenken en die met behulp van eerste versies van het eindproduct (prototypes) steeds verder te verfijnen. De focus bij de uitwerking ligt daarbij op de combinatie van vormgeving, interactie, technologie en het bouwen van de producten.</p>
+  <p>Zo hebben studenten bijvoorbeeld van een dikke papieren gids voor internationale studenten in Nederland een handzame digitale versie ontworpen. Anderen maakten een redesign van een bestaande webshop om zo de klantbeleving en verkoop te versterken. Ook hebben CMD studenten een app ontwikkeld voor muzikanten waar zij direct hun inspiratie voor nieuwe nummers op kunnen plaatsen. En voor het Academisch Medisch Centrum in Amsterdam hebben ze een digitale applicatie ontworpen voor de afdeling psychiatrie. Zo hopen we de (digitale) wereld om ons heen wat mooier en beter te maken. Wie doet er mee?!</p>
+
+  <script>
+    var cssTest = document.getElementById('css-test');
+
+    if(cssTest.clientWidth == 1) { // calc unavailable
+      var css = document.getElementById('css');
+      var mediaQueries = '';
+      for(var i = 0; i <= 2560; i++) {
+        mediaQueries += '@media screen and (min-width: ' + i + 'px) { body { font-size: ' + (12 + (26 - 14) * ((i - 500) / (1600 - 300))) + 'px; } }';
+      }
+
+      css.innerHTML += mediaQueries;
+    }
+  </script>
+</body>
+</html>
