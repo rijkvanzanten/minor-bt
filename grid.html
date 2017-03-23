@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid | Browser Technologies</title>
+  <style>
+    body {
+      height: 100%;
+      position: relative;
+      padding: 0;
+    }
+
+    #wrapper {
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      flex-wrap: wrap;
+
+      display: grid;
+      grid-gap: 10px;
+    }
+
+    #wrapper div {
+      box-sizing: border-box;
+      border: 2px solid black;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 2em;
+      padding: 1em;
+
+      width: 40%;
+
+      display: inline-block;
+      margin: 20px;
+
+      flex-grow: 1;
+    }
+
+    @supports(display: grid) {
+      #wrapper div {
+        width: auto;
+      }
+    }
+
+    #wrapper div:nth-child(1) {
+      grid-column: span 2;
+      grid-row: row;
+    }
+
+    #wrapper div:nth-child(2) {
+      grid-column: col 2 / span 2;
+      grid-row: row;
+    }
+
+    #wrapper div:nth-child(3) {
+      grid-row: row 2;
+    }
+
+    #wrapper div:nth-child(4) {
+      grid-column: col 1 / span 3;
+      grid-row: row 2;
+    }
+
+    #wrapper div:nth-child(5) {
+      grid-column: span 4;
+      grid-row: row 3;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS <code>display: grid;</code></h1>
+  <div id="wrapper">
+    <div>A</div>
+    <div>B</div>
+    <div>C</div>
+    <div>D</div>
+    <div>E</div>
+  </div>
+</body>
+</html>
