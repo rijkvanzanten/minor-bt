@@ -15,6 +15,13 @@
       border: 2px dotted hotpink
     }
   </style>
+
+  <!--[if lt IE 9]>
+    <script>
+      window.location = 'http://techstuffed.com/wp-content/uploads/2016/04/image-1.png.cf_-1.png';
+    </script>
+  <![endif]-->
+
 </head>
 <body>
   <h1>Custom context-based right-click menu</h1>
@@ -43,10 +50,16 @@
   </form>
 
   <script>
+    function elementIsSupported(tag){
+      var element = document.createElement(tag);
+      return Object.prototype.toString.call(element) !== '[object HTMLUnknownElement]';
+    }
+
     var support = document.getElementById('support-msg');
     var menu = document.getElementById('custom-menu');
     var menuTarget = document.getElementById('menu-target');
-    if('type' in document.createElement('menu')) {
+
+    if(elementIsSupported('menuitem')) {
       support.innerHTML = 'supports';
       support.style.color = 'green';
     } else {
