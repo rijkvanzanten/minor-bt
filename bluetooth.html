@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Bluetooth | Browser Technologies</title>
+  <style>
+    section > div {
+      padding: 5em;
+    }
+
+    section > div > * {
+      font-family: sans-serif;
+      font-size: 2em;
+      margin-left: 1em;
+    }
+
+    #too-bad {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bluetooth Demo</h1>
+  <p>Track your devices battery status.</p>
+  <section>
+    <div>
+      <span id="name"></span>
+      <span id="level">?</span>
+      <progress max="100" level="100"></progress>
+    </div>
+    <button>connect</button>
+  </section>
+  <script>
+    if('bluetooth' in navigator) {
+      let bluetoothDevice,
+          batteryLevelCharacteristic;
+
+      document.querySelector('button').addEventListener('click', requestDevice);
+
+      function writeLevel(level) {
+        document.querySelector('#level').innerHTML = level + '%';
+        document.querySelector('progress').value = level;
+      }
+
+      function requestDevice() {
+        console.log('> request device');
+        return navigator.bluetooth.requestDevice({
+          acceptAllDevices: true,
+          optionalServices: ['battery_service']
+        })
+        .then(device => {
+          bluetoothDevice = device;
+          document.querySelector('#name').innerHTML = device.name;
+          bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+          connectDevice();
+        });
+      }
+
+      function connectDevice() {
+        console.log('> connect device');
+        if(bluetoothDevice.gatt.connected && batteryLevelCharacteristic) {
+          return Promise.resolve();
+        }
+
+        console.log('> connect to GATT server')
+        return bluetoothDevice.gatt.connect()
+          .then(server => {
+            console.log('> get battery service');
+            return server.getPrimaryService('battery_service');
+          })
+          .then(service => {
+            console.log('> get battery level characteristic');
+            return service.getCharacteristic('battery_level');
+          })
+          .then(characteristic => {
+            batteryLevelCharacteristic = characteristic;
+            batteryLevelCharacteristic.addEventListener('characteristicvaluechanged', handleBatteryLevelChanged)
+          })
+          .then(readBatteryLevel)
+          .then(startNotifications)
+          .catch(err => console.error('Dammit. ' + err));
+      }
+
+      function startNotifications() {
+        console.log('> start notifications');
+        batteryLevelCharacteristic.startNotifications()
+          .catch(err => console.error('Dammit. ' + err));
+      }
+
+      function readBatteryLevel() {
+        return (bluetoothDevice ? Promise.resolve() : requestDevice())
+          .then(connectDevice)
+          .then(() => {
+            console.log('> read battery level');
+            return batteryLevelCharacteristic.readValue();
+          })
+          .catch(err => console.error('Dammit. ' + err));
+      }
+
+      function handleBatteryLevelChanged(event) {
+        const batteryLevel = event.target.value.getUint8(0);
+        console.log('> battery level changed: ' + batteryLevel);
+        writeLevel(batteryLevel);
+      }
+
+      function onDisconnected() {
+        console.log('> device disconnected');
+        connectDevice();
+      }
+
+      function init() {
+        console.log('> start');
+        requestDevice();
+      }
+    } else {
+      document.querySelector('section').remove();
+      document.body.innerHTML += '<p id="too-bad">Your device doesn\'t support web bluetooth api</p>'
+    }
+  </script>
+</body>
+</html>
