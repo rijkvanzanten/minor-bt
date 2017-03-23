@@ -30,13 +30,21 @@
     var cssTest = document.getElementById('css-test');
 
     if(cssTest.clientWidth == 1) { // calc unavailable
-      var css = document.getElementById('css');
-      var mediaQueries = '';
-      for(var i = 0; i <= 2560; i++) {
-        mediaQueries += '@media screen and (min-width: ' + i + 'px) { body { font-size: ' + (12 + (26 - 14) * ((i - 500) / (1600 - 300))) + 'px; } }';
-      }
 
-      css.innerHTML += mediaQueries;
+      // Very pretty, but unfortunatly isn't @media supported in any browser that doesn't support calc
+      // var css = document.getElementById('css');
+      //
+      // var mediaQueries = '';
+      // for(var i = 0; i <= 2560; i++) {
+      //   mediaQueries += '@media screen and (min-width: ' + i + 'px) { body { font-size: ' + (12 + (26 - 14) * ((i - 500) / (1600 - 300))) + 'px; } }';
+      // }
+      //
+      // css.innerHTML += mediaQueries;
+
+      // This is even prettier
+      window.onresize = function(event) {
+        document.body.style.fontSize = (12 + (26 - 14) * ((window.innerWidth - 500) / (1600 - 300))) + 'px';
+      }
     }
   </script>
 </body>
