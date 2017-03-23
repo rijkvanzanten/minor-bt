@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Notifications | Browser Technologies</title>
+</head>
+<body>
+  <h1>Notifications</h1>
+  <button id="send-notification">Send Notification</button>
+  <script>
+    function sendNotification() {
+      if (!('Notification' in window)) {
+        alert('Van een brandweerladder naar een keukentrapje');
+      } else if (Notification.permission === 'granted') {
+        var notification = new Notification('Een reiziger houd je nooit tegen.');
+      } else {
+        Notification.requestPermission(function (permission) {
+          if (permission === 'granted') {
+            var notification = new Notification('Ik ben net zo blij als een koe op de eerste lente dag.');
+          }
+        });
+      }
+    }
+
+    document.getElementById('send-notification').onclick = sendNotification;
+  </script>
+</body>
+</html>
