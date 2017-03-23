@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Context Menu | Browser Technologies</title>
+  <style>
+    menu {
+      display: none;
+    }
+
+    [contextmenu] {
+      padding: 2em;
+      border: 2px dotted hotpink
+    }
+  </style>
+</head>
+<body>
+  <h1>Custom context-based right-click menu</h1>
+  <p>This browser <span id="support-msg">doesn't support</span> context menus.</p>
+
+  <p id="menu-target" contextmenu="custom-menu">
+    Right click here to see the custom menu.
+  </p>
+
+  <menu type="context" id="custom-menu">
+    <menuitem type="checkbox" checked="true">Checkbox</menuitem>
+    <menuitem type="command" label="Command" onclick="alert('woopwoop')">Command</menuitem>
+    <menuitem type="checkbox" disabled>Disabled menu item</menuitem>
+    <menuitem type="radio" name="group1" checked="true">Radio button</menuitem>
+    <menuitem type="radio" name="group1">Another radio button</menuitem>
+  </menu>
+
+  <p>The custom-menu shortcuts should be an extra enhancement next to "regular" controls: </p>
+
+  <form>
+    <label><input type="checkbox" />Checkbox</label>
+    <button onclick="alert('woopwoop')">Command</button>
+    <label><input disabled type="checkbox" />Checkbox</label>
+    <label><input type="radio" name="demo-radio" />Radio button</label>
+    <label><input type="radio" name="demo-radio" />Another radio button</label>
+  </form>
+
+  <script>
+    var support = document.getElementById('support-msg');
+    var menu = document.getElementById('custom-menu');
+    var menuTarget = document.getElementById('menu-target');
+    if('type' in document.createElement('menu')) {
+      support.innerHTML = 'supports';
+      support.style.color = 'green';
+    } else {
+      support.style.color = 'red';
+      menu.parentNode.removeChild(menu);
+      menuTarget.parentNode.removeChild(menuTarget);
+    }
+  </script>
+</body>
+</html>
