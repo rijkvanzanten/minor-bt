@@ -120,6 +120,7 @@ _grid_
 
 
 ## Notifications
+[Live demo](https://rijkvanzanten.github.io/minor-bt/notifications.html)
 
 The Notifications API allows web pages to send system notifications to the end user. The notifications are outside the top-level browsing context viewport, so can be displayed even when the user doesn't have the browser window opened.
 
