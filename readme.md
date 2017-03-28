@@ -2,7 +2,7 @@
 
 ## Details & Summary
 
-[Live demo](https://rijkvanzanten/week2.github.io/minor-bt/details-summary.html)
+[Live demo](https://rijkvanzanten/week2.github.io-bt/details-summary.html)
 
 The `<details>` element can be used as a disclosure widget from which the user can retrieve additional information. This pattern is also known as a accordion.
 
@@ -28,7 +28,7 @@ Browser which don't support the elements will ignore them and fall back to the c
 
 ## Context Menu
 
-[Live demo](https://rijkvanzanten.github.io/minor-bt/week2/context-menu.html)
+[Live demo](https://rijkvanzanten.github.io/minor-bt/context-menu.html)
 
 The `<menu>` and `<menuitem>` elements can be used in combination with the `context` type attribute to provide extra contextual options in the right-click-menu.
 
@@ -54,7 +54,7 @@ The contextual options should at all times be optional extras next to the regula
 
 ## Fluid Text
 
-[Live demo](https://rijkvanzanten.github.io/minor-bt/week2/fluid-text.html)
+[Live demo](https://rijkvanzanten.github.io/minor-bt/fluid-text.html)
 
 In this demo I've used a combination of `calc()` and viewport relative units to scale the fontsize of the page in relation to the width of the viewport.
 
@@ -86,7 +86,7 @@ The second attempt is adding a event listener to the window and updating the fon
 
 ## Grid
 
-[Live demo](https://rijkvanzanten.github.io/minor-bt/week2/grid.html)
+[Live demo](https://rijkvanzanten.github.io/minor-bt/grid.html)
 
 CSS Grid Layout is a very powerful layout system available in CSS. It is a 2-dimensional system (columns & rows).
 
@@ -120,7 +120,7 @@ _grid_
 
 
 ## Notifications
-[Live demo](https://rijkvanzanten.github.io/minor-bt/week2/notifications.html)
+[Live demo](https://rijkvanzanten.github.io/minor-bt/notifications.html)
 
 The Notifications API allows web pages to send system notifications to the end user. The notifications are outside the top-level browsing context viewport, so can be displayed even when the user doesn't have the browser window opened.
 
@@ -145,7 +145,7 @@ Browsers which don't support the Notifications API will receive alerts instead o
 
 
 ## Bluetooth API
-[Live demo](https://rijkvanzanten.github.io/minor-bt/week2/bluetooth.html)
+[Live demo](https://rijkvanzanten.github.io/minor-bt/bluetooth.html)
 
 The Bluetooth API allows websites to communicate with nearby Bluetooth devices. Heart rate monitors, smart lightbulbs, drones etc etc etc could interact directly with a website.
 
