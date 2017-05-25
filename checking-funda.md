@@ -70,3 +70,16 @@ It seems like localStorage specifically is used mostly for tracking and user ide
 ![localStorage contents](./checking-funda-images/localstorage.png)
 
 _This was tested by checking the `Block sites from setting any data` options under Settings > Advanced Settings > Content Settings > Cookies in Chrome Version 58.0.3029.110_
+
+## Mouse / Trackpad
+
+---
+
+## Device testing
+Unfortunately, my automated tests across a great range of devices turned up empty because of Funda's robot-device blocking practices :(
+
+![Device testing fail](./checking-funda-images/devices.png)
+
+Fortunately, my account allows me to test on these devices manually as well:
+
+
