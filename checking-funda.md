@@ -21,3 +21,17 @@ Looking at images of realestate is a _major_ functionality and use-case of a rea
 |Single item | ![Single](./checking-funda-images/item.png)   | ![Single](./checking-funda-images/item-no-images.png)   |
 
 Note that all icons are images as well. Some options of the website are completely missing without these images. For example the button in the top right on the single item page is rendered useless and the 'share' buttons are missing.
+
+_This was tested by disabling images under Settings > Advanced Settings > Content Settings > Images in Chrome Version 58.0.3029.110_
+
+## Custom Fonts
+
+Funda uses Googles Proxima Nova font for all it's copy. The font is being loaded asynchronously, with the system-default `sans-serif` font as fallback. This prevents a [FOIT](https://css-tricks.com/fout-foit-foft/). The `sans-serif` default on a Mac is actually quite similar in look and feel to Proxima Nova, so I didn't even notice the font missing the first time around.
+
+![Home header with Proxima Nova](./checking-funda-images/home-with-fonts.png)
+_Home with custom font_  
+
+![Home header without Proxima Nova](./checking-funda-images/home-withouth-fonts.png);
+_Home header without custom font_
+
+_This was tested by removing the `fonts-loaded` class and throttling the network speed_
