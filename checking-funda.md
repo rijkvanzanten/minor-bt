@@ -72,8 +72,16 @@ It seems like localStorage specifically is used mostly for tracking and user ide
 _This was tested by checking the `Block sites from setting any data` options under Settings > Advanced Settings > Content Settings > Cookies in Chrome Version 58.0.3029.110_
 
 ## Mouse / Trackpad
+Funda's website is perfectly usable with just the keyboard. All interactive elements have clear focus states and every tabindex is set exactly as I expected. I was able to navigate around the site just fine and found some nice apartments in the area in the meantime.
 
 ---
+
+## Screen Reader
+Just as with using just the keyboard, most of the site gets read to the user just fine with a screenreader like voice over. I noticed one major thing though. VoiceOver was completely stuck when I opened a photo. It didn't know what to select and read to me when trying to navigate the view (I think it was still targeting the underlaying page instead of the buttons in view).
+
+![VoiceOver 1](./checking-funda-images/voice-over1.png)
+![VoiceOver 2](./checking-funda-images/voice-over2.png)
+![VoiceOver 3](./checking-funda-images/voice-over3.png)
 
 ## Device testing
 Unfortunately, my automated tests across a great range of devices turned up empty because of Funda's robot-device blocking practices :(
