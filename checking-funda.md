@@ -35,3 +35,10 @@ _Home with custom font_
 _Home header without custom font_
 
 _This was tested by removing the `fonts-loaded` class and throttling the network speed_
+
+## JavaScript
+Overall, the Funda website kinda works without JavaScript. There are some (major) features which plainly don't work — like the map view or the filter sidebar — but searching for and viewing real estate still works enough to be used properly. 
+
+Whilst some features are missing, the most important interaction flow is still possible. You can still search for real estate from the homepage, select and view a single item and contact the realtor.
+
+_This was tested by disabling JavaScript entirely under Settings > Advanced Settings > Content Settings > JavaScript in Chrome Version 58.0.3029.110_
