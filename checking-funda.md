@@ -42,3 +42,13 @@ Overall, the Funda website kinda works without JavaScript. There are some (major
 Whilst some features are missing, the most important interaction flow is still possible. You can still search for real estate from the homepage, select and view a single item and contact the realtor.
 
 _This was tested by disabling JavaScript entirely under Settings > Advanced Settings > Content Settings > JavaScript in Chrome Version 58.0.3029.110_
+
+## Color
+The differences in colors are mostly good enough for people with colorblindness to be able to use the website without any problems. In general, the contrast between copy and background is good enough. There are some particular places where the contrast between text and backgroud color leaves something to be desired.
+![Low contrast text](./checking-funda-images/contrast.png)
+
+Next to the breadcrumbs, the labels of the general information about an item could prove a little hard to read for people with less-than-macbook-quality screens.
+
+![Hard to read on bad screen](./checking-funda-images/text-contrast.png)
+
+_Tested with [Sim Daltonism](https://itunes.apple.com/nl/app/sim-daltonism/id693112260?l=en&mt=12) and [Lea Verou's contrastratio](http://leaverou.github.io/contrast-ratio/#%23999999-on-white)_
