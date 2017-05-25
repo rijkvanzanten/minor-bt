@@ -7,8 +7,8 @@ This document is a check of the [Funda website](http://funda.nl) which focusses 
 3. [JavaScript](#javascript)
 4. [Color](#color)
 5. [Fast Internet](#fast-internet)
-6. [Cookies](#cookies)
-7. [localStorage](#localstorage)
+6. [Cookies](#cookies-localstorage)
+7. [localStorage](#cookies-localstorage)
 8. [Mouse / Trackpad](#mouse-trackpad)
 
 ## Images
@@ -60,9 +60,13 @@ Funda's website renders the page really nicely on slow connections. The assets a
 
 _Loading of page on a 2G connection_
 
-## Cookies
-Creating an account and logging in without cookies completely broke the interaction on Funda's site. It didn't save my account registration and redirected me to a style-less error page. Registering / logging in with cookies enabled works exactly as expected.
+## Cookies / localStorage
+Creating an account and logging in without cookies/localStorage completely broke the interaction on Funda's site. It didn't save my account registration and redirected me to a style-less error page. Registering / logging in with cookies/localStorage enabled works exactly as expected.
 
 ![No-cookie registering error](./checking-funda-images/error.png)
 
+It seems like localStorage specifically is used mostly for tracking and user identification purposes.
 
+![localStorage contents](./checking-funda-images/localstorage.png)
+
+_This was tested by checking the `Block sites from setting any data` options under Settings > Advanced Settings > Content Settings > Cookies in Chrome Version 58.0.3029.110_
