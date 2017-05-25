@@ -52,3 +52,17 @@ Next to the breadcrumbs, the labels of the general information about an item cou
 ![Hard to read on bad screen](./checking-funda-images/text-contrast.png)
 
 _Tested with [Sim Daltonism](https://itunes.apple.com/nl/app/sim-daltonism/id693112260?l=en&mt=12) and [Lea Verou's contrastratio](http://leaverou.github.io/contrast-ratio/#%23999999-on-white)_
+
+## Fast Internet
+Funda's website renders the page really nicely on slow connections. The assets are very well prioritized and the time to interactive is very quick, even on relatively bad connections. The custom font is — just like the JS bundle — load async, which results in a very fast meaningfull first paint. It is very clear that the developers kept mobile users on the move in mind when setting up this front-end.
+
+![Loading speed on a 2G connection](./checking-funda-images/loading.png)
+
+_Loading of page on a 2G connection_
+
+## Cookies
+Creating an account and logging in without cookies completely broke the interaction on Funda's site. It didn't save my account registration and redirected me to a style-less error page. Registering / logging in with cookies enabled works exactly as expected.
+
+![No-cookie registering error](./checking-funda-images/error.png)
+
+
