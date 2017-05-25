@@ -80,6 +80,15 @@ Unfortunately, my automated tests across a great range of devices turned up empt
 
 ![Device testing fail](./checking-funda-images/devices.png)
 
-Fortunately, my account allows me to test on these devices manually as well:
+Fortunately, [Browserstack](http://browserstack.com) allows me to test on these devices manually as well:
+
+![Samsung S7](./checking-funda-images/samsung-s7.png)
+![Samsung S5](./checking-funda-images/samsung-s5.png)
+![Nexus Tab](./checking-funda-images/nexus-tab.png)
+![Nokia](./checking-funda-images/nokia.png)
+![HTC](./checking-funda-images/htc.png)
+![ie7](./checking-funda-images/ie7.png)
+
+Funda's website remains very consistent across a range of devices. It draws a line at ie8 and below however. People who still use the 16yo Windows XP operating system will have a "suboptimal" experience.
 
 
