@@ -31,7 +31,7 @@ Funda uses Googles Proxima Nova font for all it's copy. The font is being loaded
 ![Home header with Proxima Nova](./checking-funda-images/home-with-fonts.png)
 _Home with custom font_  
 
-![Home header without Proxima Nova](./checking-funda-images/home-withouth-fonts.png);
+![Home header without Proxima Nova](./checking-funda-images/home-without-fonts.png)
 _Home header without custom font_
 
 _This was tested by removing the `fonts-loaded` class and throttling the network speed_
